@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/guiback0/Mon-Vieux-Grimoir/issues"
   },
-  "homepage": "https://github.com/guiback0/Mon-Vieux-Grimoir#readme"
+  "homepage": "https://github.com/guiback0/Mon-Vieux-Grimoir#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
