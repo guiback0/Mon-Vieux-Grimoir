@@ -3,25 +3,14 @@ const express = require("express");
 const app = express();
 
 const mongoose = require("mongoose");
-const uri =
-   "mongodb+srv://guiback:Dihupu2102@sandbox.kkyhzdb.mongodb.net/?retryWrites=true&w=majority&appName=SandBox";
-const clientOptions = {
-   serverApi: { version: "1", strict: true, deprecationErrors: true },
-};
-async function run() {
-   try {
-      // Create a Mongoose client with a MongoClientOptions object to set the Stable API version
-      await mongoose.connect(uri, clientOptions);
-      await mongoose.connection.db.admin().command({ ping: 1 });
-      console.log(
-         "Pinged your deployment. You successfully connected to MongoDB!"
-      );
-   } finally {
-      // Ensures that the client will close when you finish/error
-      await mongoose.disconnect();
-   }
-}
-run().catch(console.dir);
+
+mongoose
+   .connect(
+      "mongodb+srv://guiback:Dihupu2102@sandbox.kkyhzdb.mongodb.net/?retryWrites=true&w=majority&appName=SandBox",
+      { useNewUrlParser: true, useUnifiedTopology: true }
+   )
+   .then(() => console.log("Connexion à MongoDB réussie !"))
+   .catch(() => console.log("Connexion à MongoDB échouée !"));
 
 app.use((req, res, next) => {
    res.setHeader("Access-Control-Allow-Origin", "*");
