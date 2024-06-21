@@ -1,3 +1,4 @@
+require("dotenv").config({ path: [".env.local", ".env"] });
 const express = require("express");
 
 const mongoose = require("mongoose");
@@ -6,10 +7,10 @@ const bookRoutes = require("./routes/book");
 const userRoutes = require("./routes/user");
 
 mongoose
-   .connect(
-      "mongodb+srv://guiback:Dihupu2102@sandbox.kkyhzdb.mongodb.net/?retryWrites=true&w=majority&appName=SandBox",
-      { useNewUrlParser: true, useUnifiedTopology: true }
-   )
+   .connect(process.env.MONGO_CONNECTION_STRING, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+   })
    .then(() => console.log("Connexion à MongoDB réussie !"))
    .catch(() => console.log("Connexion à MongoDB échouée !"));
 
