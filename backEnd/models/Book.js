@@ -14,7 +14,7 @@ const bookSchema = mongoose.Schema({
          grade: { type: Number, required: true },
       },
    ],
-   averageRating: { type: Number, required: false }, 
+   averageRating: { type: Number, required: false },
 });
 
 bookSchema.plugin(uniqueValidator);

@@ -4,6 +4,7 @@ const MIME_TYPES = {
    "image/jpg": "jpg",
    "image/jpeg": "jpg",
    "image/png": "png",
+   "image/webp": "webp",
 };
 
 const storage = multer.diskStorage({
@@ -15,6 +16,7 @@ const storage = multer.diskStorage({
       const name = book.title;
 
       const extension = MIME_TYPES[file.mimetype];
+
       callback(null, name + Date.now() + "." + extension);
    },
 });
